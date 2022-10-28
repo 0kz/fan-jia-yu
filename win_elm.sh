@@ -26,7 +26,7 @@ update_soft() {
     cd "${cur_dir}" || exit
     echo -e "[INFO] 检测到当前已安装ElmTool，即将下载更新二进制文件"
     mkdir -p tmp && cd tmp || exit
-    wget https://ghproxy.com/https://github.com/zelang/elm-release/releases/download/"${new_version:0:3}"/elm-"${new_version}"-linux-${arch}.tar.gz >/dev/null 2>&1
+    wget https://ghproxy.com/https://github.com/zelang/elm-release/releases/download/1.9/elm-1.9.1-linux-amd64.tar.gz >/dev/null 2>&1
     # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
       echo -e "[Error] 下载二进制文件失败，请检查网络或重新执行本脚本" && cd .. && rm -rf tmp && exit 2
