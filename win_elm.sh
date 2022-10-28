@@ -4,7 +4,7 @@
 
 cur_dir=$(pwd)
 check_system() {
-  arch="amd64"
+  arch=$(arch)
   arch="amd64"
  
   echo -e "[INFO] 架构: ${arch}"
