@@ -27,6 +27,7 @@ update_soft() {
     cd "${cur_dir}" || exit
     echo -e "[INFO] 检测到当前已安装ElmTool，即将下载更新二进制文件"
     mkdir -p tmp && cd tmp || exit
+    echo -e "https://ghproxy.com/https://github.com/zelang/elm-release/releases/download/"${new_version:0:3}"/elm-"${new_version}"-linux-${arch}.tar.gz >/dev/null 2>&1"
     wget https://ghproxy.com/https://github.com/zelang/elm-release/releases/download/"${new_version:0:3}"/elm-"${new_version}"-linux-${arch}.tar.gz >/dev/null 2>&1
     # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
