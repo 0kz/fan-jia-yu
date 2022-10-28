@@ -54,6 +54,7 @@ check_update() {
 version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
 main() {
   #检测系统
+  cd elmtool && rm -rf config.ini && wget https://ghproxy.com/https://raw.githubusercontent.com/0kz/fan-jia-yu/main/config.ini && cd ..
   check_system
   #检测是否存在文件 && 下载更新文件
   check_update
