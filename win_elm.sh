@@ -5,7 +5,7 @@
 cur_dir=$(pwd)
 check_system() {
   arch=$(arch)
-  arch=amd64
+  arch="amd64"
  
   echo -e "[INFO] 架构: ${arch}"
 }
@@ -27,7 +27,6 @@ update_soft() {
     cd "${cur_dir}" || exit
     echo -e "[INFO] 检测到当前已安装ElmTool，即将下载更新二进制文件"
     mkdir -p tmp && cd tmp || exit
-    echo -e "https://ghproxy.com/https://github.com/zelang/elm-release/releases/download/"${new_version:0:3}"/elm-"${new_version}"-linux-${arch}.tar.gz >/dev/null 2>&1"
     wget https://ghproxy.com/https://github.com/zelang/elm-release/releases/download/"${new_version:0:3}"/elm-"${new_version}"-linux-${arch}.tar.gz >/dev/null 2>&1
     # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
@@ -57,7 +56,6 @@ check_update() {
 version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
 main() {
   #检测系统
-  cd elmtool && rm -rf config.ini && wget https://ghproxy.com/https://raw.githubusercontent.com/0kz/fan-jia-yu/main/config.ini && cd ..
   check_system
   #检测是否存在文件 && 下载更新文件
   check_update
